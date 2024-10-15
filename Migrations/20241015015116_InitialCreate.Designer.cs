@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FullstackBeatsBE.Migrations
 {
     [DbContext(typeof(FullstackBeatsBEDbContext))]
-    [Migration("20241015011832_InitialCreate")]
+    [Migration("20241015015116_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
