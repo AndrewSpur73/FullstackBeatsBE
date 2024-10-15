@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using FullstackBeatsBE.API;
 using Microsoft.AspNetCore.Http.Json;
 
 namespace FullstackBeatsBE
@@ -50,7 +51,7 @@ namespace FullstackBeatsBE
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            UserAPI.Map(app);
 
             app.Run();
         }
