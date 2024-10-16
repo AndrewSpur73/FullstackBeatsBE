@@ -16,6 +16,7 @@ namespace FullstackBeatsBE
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddAutoMapper(typeof(Program)); //Adds AutoMapper to the build
             builder.Services.AddCors(options =>
             {
                 options.AddDefaultPolicy(policy =>
@@ -52,6 +53,7 @@ namespace FullstackBeatsBE
             app.UseHttpsRedirection();
 
             UserAPI.Map(app);
+            ShowsAPI.Map(app);
             CategoryAPI.Map(app);
 
             app.Run();
