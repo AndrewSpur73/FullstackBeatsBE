@@ -52,6 +52,7 @@ namespace FullstackBeatsBE
             app.UseHttpsRedirection();
 
             UserAPI.Map(app);
+            CategoryAPI.Map(app);
 
             app.Run();
         }
