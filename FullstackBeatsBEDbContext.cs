@@ -27,9 +27,10 @@ namespace FullstackBeatsBE
                 .UsingEntity(t => t.ToTable("UserShow"));
 
             modelBuilder.Entity<Show>()
-                .HasOne(s => s.Host)           
-                .WithMany(u => u.HostShow)    
-                .HasForeignKey(s => s.HostId);
+                .HasOne(s => s.Host)
+                .WithMany(u => u.HostShow)
+                .HasForeignKey(s => s.HostId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
         }
