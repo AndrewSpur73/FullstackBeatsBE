@@ -40,7 +40,7 @@ Here you list all prerequisites necessary for running your project. For example:
 
 <h3>Postman Documentation</h3>
 
-- [API Documentation](https://www.postman.com/fullstackbeats/fullstackbeats-workspace/documentation/ro8wu2l/fullstack-beats)
+- [API Documentation](https://www.postman.com/fullstackbeats/fullstackbeats-workspace/collection/ro8wu2l/fullstack-beats)
 
 <h3>Cloning</h3>
 
@@ -89,7 +89,7 @@ Here you can list the main routes of your API, and what are their expected reque
 
 For more in-depth information about the calls, view the documentation in the Postman here:
 
-- [API Documentation](https://www.postman.com/fullstackbeats/fullstackbeats-workspace/documentation/ro8wu2l/fullstack-beats)
+- [API Documentation](https://www.postman.com/fullstackbeats/fullstackbeats-workspace/collection/ro8wu2l/fullstack-beats)
 
 <h2 id="colab">🤝 Collaborators</h2>
 
