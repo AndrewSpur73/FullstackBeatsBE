@@ -89,6 +89,8 @@ Here you can list the main routes of your API, and what are their expected reque
 
 For more in-depth information about the calls, view the documentation in the Postman here:
 
+- [API Documentation](https://www.postman.com/fullstackbeats/fullstackbeats-workspace/documentation/ro8wu2l/fullstack-beats)
+
 <h2 id="colab">🤝 Collaborators</h2>
 
 Special thank you for all people that contributed for this project.
