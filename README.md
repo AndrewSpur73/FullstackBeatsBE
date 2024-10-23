@@ -18,6 +18,7 @@
 - AutoMapper
 - SQL
 - EFcore
+- PgAdmin
 - Postman/Swagger - testing/documentation
 
 <h2 id="started">🚀 Getting started</h2>
@@ -60,38 +61,33 @@ dotnet watch run
 
 Here you can list the main routes of your API, and what are their expected request bodies.
 ​
-| route               | description                                          
+| user          | description                                          
 |----------------------|-----------------------------------------------------
-| <kbd>GET /authenticate</kbd>     | retrieves user info see [response details](#get-auth-detail)
-| <kbd>POST /authenticate</kbd>     | authenticate user into the api see [request details](#post-auth-detail)
+| <kbd>GET Login</kbd> |	Retrieves login information
+| <kbd>POST Register</kbd> |	Registers a new user
+| <kbd>GET User by Id</kbd> |	Retrieves a user by their id
+| <kbd>GET User by UID</kbd> |	Retrieves a user by their unique UID
+|<kbd>PATCH Update user</kbd> |	Updates a user's information
+| <kbd>DELETE Delete user</kbd> |	Deletes a user account
 
-<h3 id="get-auth-detail">GET /authenticate</h3>
+| category          | description                                          
+|----------------------|-----------------------------------------------------
+|<kbd>GET Categories</kbd> |	Retrieves all categories
+|<kbd>POST Create category</kbd> |	Creates a new category
+|<kbd>PATCH Update category</kbd> |	Updates an existing category
+|<kbd>DELETE Delete category</kbd> |	Deletes a category
 
-**RESPONSE**
-```json
-{
-  "name": "Fernanda Kipper",
-  "age": 20,
-  "email": "her-email@gmail.com"
-}
-```
+| shows           | description                                          
+|----------------------|-----------------------------------------------------
+|<kbd>GET All shows</kbd> |	Retrieves all shows
+|<kbd>POST Create show</kbd> |	Creates a new show
+|<kbd>GET User shows</kbd>	| Retrieves shows associated with a user
+|<kbd>GET Single show</kbd> |	Retrieves a single show's data
+|<kbd>PUT Edit show</kbd> |	Edits an existing show
+|<kbd>DELETE Delete show</kbd> |	Deletes a show
+|<kbd>POST Create show RSVP</kbd> |	Creates an RSVP for a show
 
-<h3 id="post-auth-detail">POST /authenticate</h3>
-
-**REQUEST**
-```json
-{
-  "username": "fernandakipper",
-  "password": "4444444"
-}
-```
-
-**RESPONSE**
-```json
-{
-  "token": "OwoMRHsaQwyAgVoc3OXmL1JhMVUYXGGBbCTK0GBgiYitwQwjf0gVoBmkbuyy0pSi"
-}
-```
+For more in-depth information about the calls, view the documentation in the Postman here:
 
 <h2 id="colab">🤝 Collaborators</h2>
 
