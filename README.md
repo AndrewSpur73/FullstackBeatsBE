@@ -5,56 +5,55 @@
  <a href="#started">Getting Started</a> • 
   <a href="#routes">API Endpoints</a> •
  <a href="#colab">Collaborators</a> •
- <a href="#contribute">Contribute</a>
 </p>
 
 <p align="center">
-    <b>Simple description of what your project do or how to use it.</b>
+    <b>FullstackBeatsBE provides endpoints for managing users, shows, and show categories. This collection allows users to retrieve, create, update, and delete users, shows, and show categories. It is designed to facilitate interactions with users, their RSVP'd shows, and the categories of the shows in an organized and user-friendly way.</b>
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
 
-- list of all technologies you used
-- Java
-- MongoDB
-- NodeJS
+- C#
+- .NET
+- AutoMapper
+- SQL
+- EFcore
+- Postman/Swagger - testing/documentation
 
 <h2 id="started">🚀 Getting started</h2>
 
-Here you describe how to run your project locally
+1.) Clone a repository option in Visual Studio 2.) Enter or type the repository location, and then select the Clone button 3.) To start building the program, press the green Start button on the Visual Studio toolbar, or press F5 or Ctrl+F5. Using the Start button or F5 runs the program under the debugger.
 
 <h3>Prerequisites</h3>
 
 Here you list all prerequisites necessary for running your project. For example:
 
-- [NodeJS](https://github.com/)
-- [Git 2](https://github.com)
+- [Visual Studio](https://visualstudio.microsoft.com/)
+- [.NET](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+ 
+<h4>Packages</h4>
+
+- dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --version 6.0
+- dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0
+- dotnet add package AutoMapper 
+
+<h3>Postman Documentation</h3>
+
+- [API Documentation](https://www.postman.com/fullstackbeats/fullstackbeats-workspace/documentation/ro8wu2l/fullstack-beats)
 
 <h3>Cloning</h3>
 
 How to clone your project
 
 ```bash
-git clone your-project-url-in-github
-```
-
-<h3>Config .env variables</h2>
-
-Use the `.env.example` as reference to create your configuration file `.env` with your AWS Credentials
-
-```yaml
-NODE_AWS_REGION=us-east-1
-NODE_AWS_KEY_ID={YOUR_AWS_KEY_ID}
-NODE_AWS_SECRET={YOUR_AWS_SECRET}
+git clone git@github.com:AndrewSpur73/FullstackBeatsBE.git
 ```
 
 <h3>Starting</h3>
 
-How to start your project
-
 ```bash
-cd project-name
-npm some-command-to-run
+cd FullstackBeatsBE
+dotnet watch run
 ```
 
 <h2 id="routes">📍 API Endpoints</h2>
@@ -102,42 +101,19 @@ Special thank you for all people that contributed for this project.
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/61896274?v=4" width="100px;" alt="Fernanda Kipper Profile Picture"/><br>
+        <img src="https://avatars.githubusercontent.com/u/153697028?v=4" width="100px;" alt="Andrew Spurlock Profile Picture"/><br>
         <sub>
-          <b>Fernanda Kipper</b>
+          <b>Andrew Spurlock</b>
         </sub>
       </a>
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://t.ctcdn.com.br/n7eZ74KAcU3iYwnQ89-ul9txVxc=/400x400/smart/filters:format(webp)/i490769.jpeg" width="100px;" alt="Elon Musk Picture"/><br>
+        <img src="https://ca.slack-edge.com/T03F2SDTJ-U068W2CL50D-cb7395f6591b-512" width="100px;" alt="Derek Swann Profile Picture"/><br>
         <sub>
-          <b>Elon Musk</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
-        <sub>
-          <b>Steve Jobs</b>
+          <b>Derek Swann</b>
         </sub>
       </a>
     </td>
   </tr>
 </table>
-
-<h2 id="contribute">📫 Contribute</h2>
-
-Here you will explain how other developers can contribute to your project. For example, explaining how can create their branches, which patterns to follow and how to open an pull request
-
-1. `git clone https://github.com/Fernanda-Kipper/text-editor.git`
-2. `git checkout -b feature/NAME`
-3. Follow commit patterns
-4. Open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
-
-<h3>Documentations that might help</h3>
-
-[📝 How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
-
-[💾 Commit pattern](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
