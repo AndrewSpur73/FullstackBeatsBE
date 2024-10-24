@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using FullstackBeatsBE.DTO;
+﻿using FullstackBeatsBE.DTO;
 using FullstackBeatsBE.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,8 +13,6 @@ namespace FullstackBeatsBE.API
             {
 
                 var show = await db.Shows
-                    .Include(s => s.Host)
-                    .Include(s => s.Category)
                     .ToListAsync();
 
                 return Results.Ok(show);
@@ -55,9 +52,19 @@ namespace FullstackBeatsBE.API
             });
 
             //Create a new show
-            app.MapPost("/shows", async (CreateShowDTO showDTO, FullstackBeatsBEDbContext db, IMapper mapper) =>
+            app.MapPost("/shows", async (CreateShowDTO showDTO, FullstackBeatsBEDbContext db) =>
             {
-                var newShow = mapper.Map<Show>(showDTO);
+                var newShow = new Show
+                {
+                    HostId = showDTO.HostId,
+                    Image = showDTO.Image,
+                    Name = showDTO.Name,
+                    Description = showDTO.Description,
+                    Rsvps = showDTO.Rsvps,
+                    AirDate = showDTO.AirDate,
+                    CategoryId = showDTO.CategoryId,
+
+                };
 
                 try
                 {
@@ -74,7 +81,7 @@ namespace FullstackBeatsBE.API
             });
 
             //Update a show
-            app.MapPut("/shows/{id}", async (int id, UpdateShowDTO showDTO, FullstackBeatsBEDbContext db, IMapper mapper) =>
+            app.MapPut("/shows/{id}", async (int id, UpdateShowDTO showDTO, FullstackBeatsBEDbContext db) =>
             {
                 var showToUpdate = await db.Shows.FirstOrDefaultAsync(s => s.Id == id);
 
@@ -83,11 +90,16 @@ namespace FullstackBeatsBE.API
                     return Results.NotFound("No show found.");
                 }
 
-                mapper.Map(showDTO, showToUpdate);
+                showToUpdate.Image = showDTO.Image;
+                showToUpdate.Name = showDTO.Name;
+                showToUpdate.Description = showDTO.Description;
+                showToUpdate.AirDate = showDTO.AirDate;
+                showToUpdate.CategoryId = showDTO.CategoryId;
+
                 try
                 {
                     await db.SaveChangesAsync();
-                    return Results.NoContent();
+                    return Results.Ok(showToUpdate);
                 }
                 catch (DbUpdateException ex)
                 {

@@ -1,4 +1,5 @@
 ﻿using FullstackBeatsBE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FullstackBeatsBE.API
 {
@@ -26,9 +27,9 @@ namespace FullstackBeatsBE.API
             });
 
             //Check User
-            app.MapGet("/users/{id}", (FullstackBeatsBEDbContext db, int id) =>
+            app.MapGet("/users/{id}", async (FullstackBeatsBEDbContext db, int id) =>
             {
-                User user = db.Users.SingleOrDefault(u => u.Id == id);
+                User? user = await db.Users.SingleOrDefaultAsync(u => u.Id == id);
                 if (user == null)
                 {
                     return Results.NotFound();
