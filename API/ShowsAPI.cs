@@ -167,6 +167,43 @@ namespace FullstackBeatsBE.API
 
             });
 
+            //Get a User's RSVPed shows
+            app.MapGet("/shows/attend/{userId}", async (FullstackBeatsBEDbContext db, int userId) =>
+            {
+
+                var shows = await db.Shows
+                    .Where(s => s.Attendee.Any(u => u.Id == userId))
+                    .ToListAsync();
+
+                return Results.Ok(shows);
+
+            });
+
+            //Delete an RSVP
+            app.MapDelete("/shows/attend/{userId}/{showId}", async (FullstackBeatsBEDbContext db, int userId, int showId) =>
+            {
+
+                var show = await db.Shows
+                .Include(s => s.Attendee) 
+                .FirstOrDefaultAsync(s => s.Id == showId);
+
+                if (show == null)
+                {
+                    return Results.NotFound($"Show with ID {showId} not found.");
+                }
+
+                var user = show.Attendee.FirstOrDefault(u => u.Id == userId);
+                if (user == null)
+                {
+                    return Results.NotFound($"User with ID {userId} is not attending show {showId}.");
+                }
+
+                show.Attendee.Remove(user);
+                await db.SaveChangesAsync();
+
+                return Results.NoContent(); 
+
+            });
         }
     }
 }

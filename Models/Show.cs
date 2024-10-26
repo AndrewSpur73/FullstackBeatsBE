@@ -14,5 +14,7 @@
         public List<User>? Attendee { get; set; }
         public User? Host { get; set; }
 
+        public string DateFormat => AirDate.ToString("MM/dd/yyy");
+
     }
 }
