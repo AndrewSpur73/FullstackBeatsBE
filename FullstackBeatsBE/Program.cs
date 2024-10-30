@@ -1,5 +1,8 @@
 using System.Text.Json.Serialization;
 using FullstackBeatsBE.API;
+using FullstackBeatsBE.Interfaces;
+using FullstackBeatsBE.Repositories;
+using FullstackBeatsBE.Services;
 using Microsoft.AspNetCore.Http.Json;
 
 namespace FullstackBeatsBE
@@ -38,6 +41,9 @@ namespace FullstackBeatsBE
             {
                 options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
             });
+
+            builder.Services.AddScoped<IShowRepository, ShowRepository>();
+            builder.Services.AddScoped<IShowService, ShowService>();
 
             var app = builder.Build();
 
