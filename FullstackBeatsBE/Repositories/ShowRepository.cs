@@ -114,5 +114,26 @@ namespace FullstackBeatsBE.Repositories
             return show;
 
         }
+
+        //Get a single show
+        public async Task<Show> GetShowByIdAsync(int id)
+        {
+
+            var singleShow = await _context.Shows
+            .Include(s => s.Host)
+            .Include(s => s.Category)
+            .FirstOrDefaultAsync(s => s.Id == id);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return singleShow;
+            }
+            catch (DbUpdateException ex)
+            {
+                return null;
+            }
+            
+        }
     }
 }

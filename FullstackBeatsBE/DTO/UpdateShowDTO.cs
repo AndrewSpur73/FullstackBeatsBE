@@ -8,7 +8,7 @@
         public DateTime AirDate { get; set; }
         public int CategoryId { get; set; }
 
-        public string DateFormat => AirDate.ToString("MM/dd/yyy");
+        public string DateFormat => AirDate.ToString("MM/dd/yyyy");
 
 
     }

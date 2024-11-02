@@ -10,6 +10,8 @@ namespace FullstackBeatsBE.Interfaces
         Task<Show> CreateShowAsync(CreateShowDTO showDTO);
         Task<Show> UpdateShowAsync(int id, UpdateShowDTO showDTO);
         Task<Show> DeleteShowAsync(int id);
-    
+        Task<Show> GetShowByIdAsync(int id);
+
+
     }
 }

@@ -204,6 +204,25 @@ namespace FullstackBeatsBE.API
                 return Results.NoContent(); 
 
             });
+
+            //Check if a show is reserved
+            app.MapGet("/shows/{userId}/reserved/{showId}", async (FullstackBeatsBEDbContext db, int userId, int showId) =>
+            {
+
+                var show = await db.Shows
+                .Include(s => s.Attendee)
+                .FirstOrDefaultAsync(s => s.Id == showId);
+
+                if (show == null)
+                {
+                    return Results.NotFound("Show not found.");
+                }
+
+                var isReserved = show.Attendee.Any(a => a.Id == userId);
+
+                return Results.Ok(isReserved);
+
+            });
         }
     }
 }
