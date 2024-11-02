@@ -29,9 +29,23 @@ namespace FullstackBeatsBE.Services
             return await _showRepo.GetAllShowsAsync();
         }
 
+        public async Task<Show> GetShowByIdAsync(int id)
+        {
+            var singleShow = _showRepo.GetShowByIdAsync(id);
+
+            if (singleShow == null)
+            {
+                throw new ArgumentException("Show not found.");
+            }
+
+            return await _showRepo.GetShowByIdAsync(id);
+
+        }
+
         public async Task<Show> UpdateShowAsync(int id, UpdateShowDTO showDTO)
         {
             return await _showRepo.UpdateShowAsync(id, showDTO);
+
         }
     }
 }
