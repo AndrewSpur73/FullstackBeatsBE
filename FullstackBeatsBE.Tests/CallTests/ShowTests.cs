@@ -124,15 +124,56 @@ namespace FullstackBeatsBE.Tests.CallTests
 
         }
 
-        //[Fact]
-        //public async Task DeleteShowAsync_WhenCalled_ReturnDeletedShowAsync()
-        //{
+        [Fact]
+        public async Task DeleteShowAsync_WhenCalled_ReturnDeletedShowAsync()
+        {
 
-        //    int showId = 1;
+            int showId = 1;
 
-        //    var shows = new Show
+            var show = new Show
+            {
+                Id = showId
+            };
 
-        //        {Id = 1 }
+            _mockShowRepository.Setup(x => x.GetShowByIdAsync(showId)).ReturnsAsync(show);
 
+            await _showService.DeleteShowAsync(showId);
+
+            _mockShowRepository.Verify(x => x.DeleteShowAsync(showId), Times.Once);
+
+            _mockShowRepository.Setup(x => x.GetShowByIdAsync(showId)).ReturnsAsync((Show)null);
+
+        }
+
+        [Fact]
+        public async Task GetSingleShowAsync_WhenCalled_ReturnsShow()
+        {
+            int showId = 1;
+            var show = new Show
+            {
+                Id = 1,
+                HostId = 2,
+                Image = "image",
+                Description = "Description",
+                Rsvps = 10,
+                AirDate = DateTime.Now,
+                CategoryId = 2
+            };
+
+            // Setup the repository to return the expected show when requested
+            _mockShowRepository.Setup(x => x.GetShowByIdAsync(showId)).ReturnsAsync(show);
+
+            // Act
+            var result = await _showService.GetShowByIdAsync(showId);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(show.Id, result.Id);
+            Assert.Equal(show.Description, result.Description);
+            Assert.Equal(show.Image, result.Image);
+            Assert.Equal(show.Rsvps, result.Rsvps);
+            Assert.Equal(show.AirDate, result.AirDate);
+            Assert.Equal(show.CategoryId, result.CategoryId);
+        }
     }
 }
