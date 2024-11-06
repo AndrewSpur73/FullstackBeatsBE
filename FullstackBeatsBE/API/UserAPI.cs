@@ -38,10 +38,10 @@ namespace FullstackBeatsBE.API
             });
 
             //Get User Details
-            app.MapGet("/users/details/{uid}", (FullstackBeatsBEDbContext db, string uid) =>
+            app.MapGet("/users/details/{uid}", async (FullstackBeatsBEDbContext db, string uid) =>
             {
 
-                User user = db.Users.SingleOrDefault(u => u.Uid == uid);
+                User user = await  db.Users.SingleOrDefaultAsync(u => u.Uid == uid);
 
                 if (user == null)
                 {
