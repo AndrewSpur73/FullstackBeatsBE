@@ -13,6 +13,7 @@ namespace FullstackBeatsBE.API
             {
 
                 var show = await db.Shows
+                .Include(s => s.Category)
                     .ToListAsync();
 
                 return Results.Ok(show);
